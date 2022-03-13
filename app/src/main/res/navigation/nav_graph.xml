@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="cat.copernic.fgascong.exesensores.HomeFragment"
+        android:name="cat.copernic.fgascong.exesensores.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/sensorListFragment"
-        android:name="cat.copernic.fgascong.exesensores.SensorListFragment"
+        android:name="cat.copernic.fgascong.exesensores.fragments.SensorListFragment"
         android:label="fragment_sensor_list"
         tools:layout="@layout/fragment_sensor_list" />
     <fragment
         android:id="@+id/movementSensorsFragment"
-        android:name="cat.copernic.fgascong.exesensores.MovementSensorsFragment"
+        android:name="cat.copernic.fgascong.exesensores.fragments.MovementSensorsFragment"
         android:label="fragment_movement_sensors"
         tools:layout="@layout/fragment_movement_sensors" />
 </navigation>

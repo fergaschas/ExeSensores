@@ -1,4 +1,4 @@
-package cat.copernic.fgascong.exesensores
+package cat.copernic.fgascong.exesensores.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,19 +19,19 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = FragmentHomeBinding.inflate(layoutInflater)
+        navController = findNavController()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        navController = findNavController()
 
         binding.navSensorList.setOnClickListener {
             goToSensorListFragment()
         }
 
-        binding.navSensorList.setOnClickListener {
+        binding.navMovementSensors.setOnClickListener {
             goToMovementSensors()
         }
         return binding.root

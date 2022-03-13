@@ -1,4 +1,4 @@
-package cat.copernic.fgascong.exesensores
+package cat.copernic.fgascong.exesensores.fragments
 
 import android.content.Context
 import android.hardware.Sensor
@@ -20,6 +20,8 @@ class SensorListFragment : Fragment() {
     //Binding view
     private var _binding: FragmentSensorListBinding? = null
     private val binding get() = _binding
+
+
     private lateinit var navController: NavController
     private lateinit var sensors: List<Sensor>
 
