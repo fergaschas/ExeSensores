@@ -14,6 +14,10 @@ import cat.copernic.fgascong.exesensores.adapters.SensorsValuesAdapter
 import cat.copernic.fgascong.exesensores.databinding.FragmentMovementSensorsBinding
 import cat.copernic.fgascong.exesensores.models.SensorWithValues
 import cat.copernic.fgascong.exesensores.sensorsWithXYZValues
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlin.coroutines.coroutineContext
 
 class MovementSensorsFragment : Fragment(){
 
@@ -45,8 +49,9 @@ class MovementSensorsFragment : Fragment(){
         super.onResume()
         startSensors(moveSensors)
     }
-    override fun onPause() {
-        super.onPause()
+
+    override fun onDetach() {
+        super.onDetach()
         stopSensors(moveSensors)
     }
 

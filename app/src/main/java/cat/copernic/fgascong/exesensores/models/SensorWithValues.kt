@@ -12,9 +12,9 @@ import androidx.lifecycle.liveData
 
 class SensorWithValues(val sensor: Sensor, val context: Activity) : SensorEventListener {
 
-    var x: MutableLiveData<Float> = MutableLiveData(0.0f)
-    var y: MutableLiveData<Float> = MutableLiveData(0.0f)
-    var z: MutableLiveData<Float> = MutableLiveData(0.0f)
+    var x: Float = 0.0f
+    var y: Float = 0.0f
+    var z: Float = 0.0f
 
     fun startListening() {
         val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
@@ -28,9 +28,9 @@ class SensorWithValues(val sensor: Sensor, val context: Activity) : SensorEventL
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (sensor.type == event?.sensor?.type) {
-            x.value = event.values[0]
-            y.value = event.values[1]
-            z.value = event.values[2]
+            x = event.values[0]
+            y = event.values[1]
+            z = event.values[2]
         }
     }
 
