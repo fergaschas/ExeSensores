@@ -19,7 +19,7 @@ class SensorListFragment : Fragment() {
 
     //Binding view
     private var _binding: FragmentSensorListBinding? = null
-    private val binding get() = _binding
+    private val binding get() = _binding!!
 
 
     private lateinit var navController: NavController
@@ -34,10 +34,10 @@ class SensorListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         sensors = getSensors()
-        binding?.recyclerView?.adapter = SensorsAdapter(sensors)
-        return binding?.root
+        binding.recyclerView.adapter = SensorsAdapter(sensors)
+        return binding.root
     }
 
     private fun getSensors(): List<Sensor> {

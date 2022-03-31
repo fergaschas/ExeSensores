@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_movementSensorsFragment"
             app:destination="@id/movementSensorsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_temperatureSensorFragment"
+            app:destination="@id/temperatureSensorFragment" />
     </fragment>
     <fragment
         android:id="@+id/sensorListFragment"
@@ -27,4 +30,9 @@
         android:name="cat.copernic.fgascong.exesensores.fragments.MovementSensorsFragment"
         android:label="fragment_movement_sensors"
         tools:layout="@layout/fragment_movement_sensors" />
+    <fragment
+        android:id="@+id/temperatureSensorFragment"
+        android:name="cat.copernic.fgascong.exesensores.fragments.TemperatureSensorFragment"
+        android:label="fragment_temperature_sensor"
+        tools:layout="@layout/fragment_temperature_sensor" />
 </navigation>

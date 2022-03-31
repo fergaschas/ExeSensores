@@ -4,6 +4,7 @@ import android.content.Context.SENSOR_SERVICE
 import android.hardware.Sensor
 import android.hardware.SensorManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -63,6 +64,7 @@ class MovementSensorsFragment : Fragment(){
         for (i in sensorsWithXYZValues) {
             sensor = sensorManager.getDefaultSensor(i)
             val sensorWithValues = SensorWithValues(sensor, requireActivity())
+            Log.d("SISISI", sensorWithValues.sensor.name)
             movementSensors.add(sensorWithValues)
         }
         return movementSensors
@@ -70,12 +72,14 @@ class MovementSensorsFragment : Fragment(){
 
     private fun startSensors(sensors: List<SensorWithValues>){
         for(sensor in sensors){
+            Log.d("SISISI", sensor.sensor.name + "iniciado")
             sensor.startListening()
         }
     }
 
     private fun stopSensors(sensors: List<SensorWithValues>){
         for(sensor in sensors){
+            Log.d("SISISI", sensor.sensor.name + "parado")
             sensor.stopListening()
         }
     }

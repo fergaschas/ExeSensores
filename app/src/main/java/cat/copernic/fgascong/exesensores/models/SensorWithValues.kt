@@ -2,6 +2,7 @@ package cat.copernic.fgascong.exesensores.models
 
 import android.app.Activity
 import android.content.Context
+import android.content.Context.SENSOR_SERVICE
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -17,12 +18,12 @@ class SensorWithValues(val sensor: Sensor, val context: Activity) : SensorEventL
     var z: Float = 0.0f
 
     fun startListening() {
-        val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        val sensorManager = context.getSystemService(SENSOR_SERVICE) as SensorManager
         sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
     }
 
     fun stopListening(){
-        val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        val sensorManager = context.getSystemService(SENSOR_SERVICE) as SensorManager
         sensorManager.unregisterListener(this)
     }
 

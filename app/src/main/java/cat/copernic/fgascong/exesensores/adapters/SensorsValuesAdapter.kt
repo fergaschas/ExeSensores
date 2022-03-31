@@ -2,19 +2,15 @@ package cat.copernic.fgascong.exesensores.adapters
 
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.findViewTreeLifecycleOwner
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import cat.copernic.fgascong.exesensores.R
 import cat.copernic.fgascong.exesensores.models.SensorWithValues
-import cat.copernic.fgascong.exesensores.sensorsWithXYZValues
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 

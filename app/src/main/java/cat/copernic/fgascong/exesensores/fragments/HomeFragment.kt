@@ -34,6 +34,10 @@ class HomeFragment : Fragment() {
         binding.navMovementSensors.setOnClickListener {
             goToMovementSensors()
         }
+
+        binding.navTemperatureSensors.setOnClickListener {
+            goToTemperatureSensors()
+        }
         return binding.root
     }
 
@@ -44,6 +48,11 @@ class HomeFragment : Fragment() {
 
     private fun goToSensorListFragment() {
         val action = HomeFragmentDirections.actionHomeFragmentToSensorListFragment()
+        navController.navigate(action)
+    }
+
+    private fun goToTemperatureSensors() {
+        val action = HomeFragmentDirections.actionHomeFragmentToTemperatureSensorFragment()
         navController.navigate(action)
     }
 
