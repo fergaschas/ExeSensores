@@ -9,7 +9,8 @@
     <Button
         android:id="@+id/nav_sensor_list"
         android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LISTA DE SENSORES"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +20,8 @@
     <Button
         android:id="@+id/nav_movement_sensors"
         android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SENSORES DE MOVIMIENTO"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,11 +31,23 @@
     <Button
         android:id="@+id/nav_temperature_sensors"
         android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SENSORES DE TEMPERATURA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nav_movement_sensors" />
+
+    <Button
+        android:id="@+id/nav_level_sensor"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LIENZO CON NIVEL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nav_temperature_sensors" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

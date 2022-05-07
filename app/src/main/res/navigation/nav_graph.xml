@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_temperatureSensorFragment"
             app:destination="@id/temperatureSensorFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_levelSensorFragment"
+            app:destination="@id/levelSensorFragment" />
     </fragment>
     <fragment
         android:id="@+id/sensorListFragment"
@@ -35,4 +38,9 @@
         android:name="cat.copernic.fgascong.exesensores.fragments.TemperatureSensorFragment"
         android:label="fragment_temperature_sensor"
         tools:layout="@layout/fragment_temperature_sensor" />
+    <fragment
+        android:id="@+id/levelSensorFragment"
+        android:name="cat.copernic.fgascong.exesensores.fragments.LevelSensorFragment"
+        android:label="fragment_level_sensor"
+        tools:layout="@layout/fragment_level_sensor" />
 </navigation>
