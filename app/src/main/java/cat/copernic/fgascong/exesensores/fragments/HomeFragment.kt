@@ -42,6 +42,9 @@ class HomeFragment : Fragment() {
         binding.navLevelSensor.setOnClickListener {
             goToLevelSensor()
         }
+        binding.navVoiceText.setOnClickListener {
+            goToVoiceText()
+        }
 
         return binding.root
     }
@@ -63,6 +66,11 @@ class HomeFragment : Fragment() {
 
     private fun goToLevelSensor(){
         val action = HomeFragmentDirections.actionHomeFragmentToLevelSensorFragment()
+        navController.navigate(action)
+    }
+
+    private fun goToVoiceText(){
+        val action = HomeFragmentDirections.actionHomeFragmentToVoiceTextFragment()
         navController.navigate(action)
     }
 

@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/layout/fragment_movement_sensors.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/fragment_sensor_list.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_temperature_sensor.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_voice_text.xml" value="0.33" />
         <entry key="app/src/main/res/layout/sensor_item.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/sensor_item_values.xml" value="0.33" />
       </map>

@@ -12,23 +12,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import cat.copernic.fgascong.exesensores.databinding.FragmentLevelSensorBinding
-import cat.copernic.fgascong.exesensores.databinding.FragmentTemperatureSensorBinding
-import cat.copernic.fgascong.exesensores.viewmodels.LevelSensorViewModel
-import cat.copernic.fgascong.exesensores.viewmodels.TemperatureSensorViewModel
 
-class LevelSensorFragment: Fragment(), SensorEventListener {
+class LevelSensorFragment : Fragment(), SensorEventListener {
 
     //Binding view
     private var _binding: FragmentLevelSensorBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var navController: NavController
-
-    private val viewModel: LevelSensorViewModel by viewModels()
 
     lateinit var fondo: Lienzo
 
@@ -46,17 +40,10 @@ class LevelSensorFragment: Fragment(), SensorEventListener {
         savedInstanceState: Bundle?
     ): View {
         startLevelSensor()
-
-        viewModel.positionX.observe(viewLifecycleOwner){
-            fondo.posx = it
-            fondo.invalidate()
+        binding.calibrate.setOnClickListener {
+            fondo.posXCallibrated = -fondo.posx * 2
+            fondo.posYCallibrated = -fondo.posy * 2
         }
-
-        viewModel.positionY.observe(viewLifecycleOwner){
-            fondo.posy = it
-            fondo.invalidate()
-        }
-
         return binding.root
     }
 
@@ -72,9 +59,10 @@ class LevelSensorFragment: Fragment(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         val sensor = event?.sensor
-        if (sensor?.type == Sensor.TYPE_ACCELEROMETER){
-            viewModel.setPositionX(event.values[0])
-            viewModel.setPositionY(event.values[1])
+        if (sensor?.type == Sensor.TYPE_ACCELEROMETER) {
+            fondo.posx = (event.values[0] * -100)
+            fondo.posy = (event.values[1] * 100)
+            fondo.invalidate()
         }
     }
 
@@ -84,9 +72,9 @@ class LevelSensorFragment: Fragment(), SensorEventListener {
 
     private fun startLevelSensor() {
         val sensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        val temperatureSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        val levelSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
 
-        sensorManager.registerListener(this, temperatureSensor, SensorManager.SENSOR_DELAY_UI)
+        sensorManager.registerListener(this, levelSensor, SensorManager.SENSOR_DELAY_FASTEST)
     }
 
     private fun stopLevelSensor() {
@@ -100,15 +88,23 @@ class LevelSensorFragment: Fragment(), SensorEventListener {
         //var maxim = 50f
         var posx: Float = 0f
         var posy: Float = 0f
+        var posXCallibrated = 0f
+        var posYCallibrated = 0f
 
         override fun onDraw(canvas: Canvas) {
-            canvas.drawRGB(10,10,10)
-            val ancho = width
-            val alto = height
+            canvas.drawRGB(10, 10, 10)
+            val ancho = width / 20f
+            val calibradoAncho = width + posXCallibrated
+            val calibradoAlto = height + posYCallibrated
             val pincel1 = Paint()
             pincel1.setARGB(255, 255, 100, 100)
 
-            canvas.drawCircle( (ancho/2) + posx, (alto/2) + posy, ancho /20f /* Math.abs(10+z/10)*/, pincel1 )
+            canvas.drawCircle(
+                (calibradoAncho / 2) + posx,
+                (calibradoAlto / 2) + posy,
+                ancho,
+                pincel1
+            )
         }
     }
 

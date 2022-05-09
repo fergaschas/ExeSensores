@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.VoiceTextFragment">
+
+
+    <Button
+        android:id="@+id/voice_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voice_message" />
+
+    <Button
+        android:id="@+id/voice_hello"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:text="Hello"
+        app:layout_constraintEnd_toStartOf="@+id/voice_bye"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/voice_bye"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:text="Good Bye"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/voice_hello"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/voice_apple"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:text="Apple"
+        app:layout_constraintEnd_toStartOf="@+id/voice_orange"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voice_hello" />
+
+    <Button
+        android:id="@+id/voice_orange"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:text="Orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/voice_apple"
+        app:layout_constraintTop_toBottomOf="@+id/voice_bye" />
+
+    <EditText
+        android:id="@+id/voice_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Write your message here..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voice_apple" />
+</androidx.constraintlayout.widget.ConstraintLayout>
