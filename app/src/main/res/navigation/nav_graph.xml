@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_homeFragment_to_voiceTextFragment"
             app:destination="@id/voiceTextFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
     </fragment>
     <fragment
         android:id="@+id/sensorListFragment"
@@ -51,4 +54,9 @@
         android:name="cat.copernic.fgascong.exesensores.fragments.VoiceTextFragment"
         android:label="fragment_voice_text"
         tools:layout="@layout/fragment_voice_text" />
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="cat.copernic.fgascong.exesensores.fragments.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
 </navigation>

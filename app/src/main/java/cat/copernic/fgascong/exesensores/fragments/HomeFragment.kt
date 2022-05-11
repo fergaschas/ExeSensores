@@ -27,23 +27,25 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        binding.navSensorList.setOnClickListener {
-            goToSensorListFragment()
-        }
-
-        binding.navMovementSensors.setOnClickListener {
-            goToMovementSensors()
-        }
-
-        binding.navTemperatureSensors.setOnClickListener {
-            goToTemperatureSensors()
-        }
-
-        binding.navLevelSensor.setOnClickListener {
-            goToLevelSensor()
-        }
-        binding.navVoiceText.setOnClickListener {
-            goToVoiceText()
+        binding.apply {
+            navSensorList.setOnClickListener {
+                goToSensorListFragment()
+            }
+            navMovementSensors.setOnClickListener {
+                goToMovementSensors()
+            }
+            navTemperatureSensors.setOnClickListener {
+                goToTemperatureSensors()
+            }
+            navLevelSensor.setOnClickListener {
+                goToLevelSensor()
+            }
+            navVoiceText.setOnClickListener {
+                goToVoiceText()
+            }
+            navCamera.setOnClickListener {
+                goToCameraX()
+            }
         }
 
         return binding.root
@@ -64,13 +66,18 @@ class HomeFragment : Fragment() {
         navController.navigate(action)
     }
 
-    private fun goToLevelSensor(){
+    private fun goToLevelSensor() {
         val action = HomeFragmentDirections.actionHomeFragmentToLevelSensorFragment()
         navController.navigate(action)
     }
 
-    private fun goToVoiceText(){
+    private fun goToVoiceText() {
         val action = HomeFragmentDirections.actionHomeFragmentToVoiceTextFragment()
+        navController.navigate(action)
+    }
+
+    private fun goToCameraX() {
+        val action = HomeFragmentDirections.actionHomeFragmentToCameraFragment()
         navController.navigate(action)
     }
 

@@ -33,19 +33,19 @@ class VoiceTextFragment : Fragment(), TextToSpeech.OnInitListener {
         textToSpeech = TextToSpeech(context, this)
         val speechListener = object : UtteranceProgressListener(){
             override fun onStart(utteranceId: String?) {
-                binding.voiceApple.post{
+                binding.root.post{
                     enableVoice(false)
                 }
             }
 
             override fun onDone(utteranceId: String?) {
-                binding.voiceApple.post {
+                binding.root.post {
                     enableVoice(true)
                 }
             }
 
             override fun onError(utteranceId: String?) {
-                binding.voiceApple.post {
+                binding.root.post {
                     enableVoice(true)
                 }
             }
